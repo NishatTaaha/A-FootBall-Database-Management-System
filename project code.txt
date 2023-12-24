@@ -1,0 +1,725 @@
+CREATE TABLE Teams (
+    TeamID INT PRIMARY KEY,
+    TeamName VARCHAR(255) NOT NULL,
+    CoachName VARCHAR(255) NOT NULL
+);
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (1, 'Manchester United', 'Ole Gunnar Solskjær');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (2, 'FC Barcelona', 'Ronald Koeman');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (3, 'Real Madrid', 'Carlo Ancelotti');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (4, 'Liverpool FC', 'Jürgen Klopp');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (5, 'Bayern Munich', 'Julian Nagelsmann');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (6, 'Paris Saint-Germain', 'Mauricio Pochettino');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (7, 'Juventus', 'Massimiliano Allegri');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (8, 'Chelsea FC', 'Thomas Tuchel');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (9, 'AC Milan', 'Stefano Pioli');
+INSERT INTO Teams (TeamID, TeamName, CoachName) VALUES (10, 'Borussia Dortmund', 'Marco Rose');
+SET LINESIZE 200
+SET PAGESIZE 100
+COLUMN TeamName FORMAT A20
+COLUMN CoachName FORMAT A30
+SELECT * FROM teams;
+
+
+
+
+
+CREATE TABLE Players (
+    PlayerID INT PRIMARY KEY,
+    TeamID INT,
+    PlayerName VARCHAR(255) NOT NULL,
+    Age INT,
+    Position VARCHAR(50),
+    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
+);
+-- Team 1: Manchester United
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (1, 1, 'Bruno Fernandes', 27, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (2, 1, 'Marcus Rashford', 24, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (3, 1, 'Harry Maguire', 28, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (4, 1, 'David de Gea', 31, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (5, 1, 'Paul Pogba', 28, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (6, 1, 'Mason Greenwood', 20, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (7, 1, 'Luke Shaw', 26, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (8, 1, 'Jadon Sancho', 21, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (9, 1, 'Raphael Varane', 28, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (10, 1, 'Fred', 28, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (11, 1, 'Aaron Wan-Bissaka', 24, 'Defender');
+
+-- Continue this pattern for the remaining teams and players...
+-- Team 2: FC Barcelona
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (12, 2, 'Antoine Griezmann', 30, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (13, 2, 'Ansu Fati', 19, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (14, 2, 'Pedri', 18, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (15, 2, 'Jordi Alba', 32, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (16, 2, 'Frenkie de Jong', 24, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (17, 2, 'Marc-André ter Stegen', 29, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (18, 2, 'Sergi Roberto', 29, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (19, 2, 'Ronald Araújo', 22, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (20, 2, 'Memphis Depay', 28, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (21, 2, 'Gerard Piqué', 35, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (22, 2, 'Sergio Agüero', 33, 'Forward');
+
+-- Team 3: Real Madrid
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (23, 3, 'Karim Benzema', 34, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (24, 3, 'Vinícius Júnior', 21, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (25, 3, 'Casemiro', 29, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (26, 3, 'Sergio Ramos', 35, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (27, 3, 'Thibaut Courtois', 29, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (28, 3, 'Luka Modrić', 36, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (29, 3, 'Ferland Mendy', 26, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (30, 3, 'Eder Militao', 24, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (31, 3, 'Toni Kroos', 32, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (32, 3, 'Dani Carvajal', 30, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (33, 3, 'Rodrygo', 20, 'Forward');
+
+-- Continue this pattern for the remaining teams and players...
+-- Team 4: Liverpool FC
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (34, 4, 'Mohamed Salah', 29, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (35, 4, 'Sadio Mané', 29, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (36, 4, 'Virgil van Dijk', 30, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (37, 4, 'Alisson Becker', 29, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (38, 4, 'Jordan Henderson', 31, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (39, 4, 'Trent Alexander-Arnold', 23, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (40, 4, 'Andrew Robertson', 27, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (41, 4, 'Fabinho', 28, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (42, 4, 'Diogo Jota', 24, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (43, 4, 'Thiago Alcântara', 30, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (44, 4, 'Joel Matip', 30, 'Defender');
+
+-- Team 5: Bayern Munich
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (45, 5, 'Robert Lewandowski', 33, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (46, 5, 'Thomas Müller', 32, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (47, 5, 'Manuel Neuer', 35, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (48, 5, 'Joshua Kimmich', 26, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (49, 5, 'Leroy Sané', 25, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (50, 5, 'David Alaba', 29, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (51, 5, 'Leon Goretzka', 26, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (52, 5, 'Serge Gnabry', 26, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (53, 5, 'Alphonso Davies', 21, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (54, 5, 'Niklas Süle', 26, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (55, 5, 'Benjamin Pavard', 26, 'Defender');
+
+-- Team 6: Paris Saint-Germain
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (56, 6, 'Neymar Jr.', 30, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (57, 6, 'Kylian Mbappé', 23, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (58, 6, 'Keylor Navas', 34, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (59, 6, 'Marco Verratti', 29, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (60, 6, 'Marquinhos', 27, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (61, 6, 'Achraf Hakimi', 23, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (62, 6, 'Georginio Wijnaldum', 31, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (63, 6, 'Angel Di Maria', 33, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (64, 6, 'Presnel Kimpembe', 26, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (65, 6, 'Idrissa Gueye', 32, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (66, 6, 'Juan Bernat', 28, 'Defender');
+-- Team 7: Juventus
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (67, 7, 'Cristiano Ronaldo', 37, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (68, 7, 'Paulo Dybala', 28, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (69, 7, 'Giorgio Chiellini', 37, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (70, 7, 'Federico Chiesa', 24, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (71, 7, 'Dejan Kulusevski', 21, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (72, 7, 'Juan Cuadrado', 33, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (73, 7, 'Aaron Ramsey', 31, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (74, 7, 'Adrien Rabiot', 26, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (75, 7, 'Matthijs de Ligt', 22, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (76, 7, 'Weston McKennie', 23, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (77, 7, 'Leonardo Bonucci', 34, 'Defender');
+
+-- Team 8: Chelsea FC
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (78, 8, 'Romelu Lukaku', 28, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (79, 8, 'NGolo Kanté', 31, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (80, 8, 'Mason Mount', 23, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (81, 8, 'Jorginho', 29, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (82, 8, 'Edouard Mendy', 30, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (83, 8, 'Reece James', 22, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (84, 8, 'César Azpilicueta', 32, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (85, 8, 'Thiago Silva', 37, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (86, 8, 'Kai Havertz', 22, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (87, 8, 'Ben Chilwell', 25, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (88, 8, 'Christian Pulisic', 23, 'Forward');
+
+-- Team 9: AC Milan
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (89, 9, 'Zlatan Ibrahimović', 40, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (90, 9, 'Franck Kessié', 25, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (91, 9, 'Simon Kjaer', 32, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (92, 9, 'Gianluigi Donnarumma', 22, 'Goalkeeper');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (93, 9, 'Theo Hernández', 24, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (94, 9, 'Sandro Tonali', 21, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (95, 9, 'Alessio Romagnoli', 27, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (96, 9, 'Rafael Leão', 22, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (97, 9, 'Davide Calabria', 25, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (98, 9, 'Ismael Bennacer', 24, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (99, 9, 'Brahim Díaz', 22, 'Midfielder');
+
+-- Team 10: Borussia Dortmund
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (100, 10, 'Erling Haaland', 21, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (101, 10, 'Jadon Sancho', 21, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (102, 10, 'Marco Reus', 32, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (103, 10, 'Mats Hummels', 32, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (104, 10, 'Giovanni Reyna', 19, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (105, 10, 'Jude Bellingham', 18, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (106, 10, 'Manuel Akanji', 26, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (107, 10, 'Thorgan Hazard', 28, 'Forward');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (108, 10, 'Axel Witsel', 32, 'Midfielder');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (109, 10, 'Raphael Guerreiro', 27, 'Defender');
+INSERT INTO Players (PlayerID, TeamID, PlayerName, Age, Position) VALUES (110, 10, 'Thomas Meunier', 30, 'Defender');
+
+COLUMN PlarerId FORMAT 999
+COLUMN TeamId FORMAT 999
+COLUMN PlayerName FORMAT A20
+COLUMN Age FORMAT 999
+COLUMN Position FORMAT A20
+SELECT * FROM Players;
+
+
+
+CREATE TABLE Matches (
+    MatchID INT PRIMARY KEY,
+    firstTeamID INT,
+    secondTeamID INT,
+    MatchDate DATE,
+    Stadium VARCHAR(255),
+    Result VARCHAR(255),
+    FOREIGN KEY (firstTeamID) REFERENCES Teams(TeamID),
+    FOREIGN KEY (secondTeamID) REFERENCES Teams(TeamID)
+);
+-- Insert data for matches
+-- Match 1
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (1, 1, 2, TO_DATE('2023-11-15', 'YYYY-MM-DD'), 'Old Trafford', 'Manchester United 2 - FC Barcelona 1');
+
+-- Match 2
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (2, 1, 3, TO_DATE('2023-11-18', 'YYYY-MM-DD'), 'Santiago Bernabéu', 'Manchester United 3 - Real Madrid 2');
+
+-- Match 3
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (3, 1, 4, TO_DATE('2023-11-21', 'YYYY-MM-DD'), 'Anfield', 'Manchester United 1 - Liverpool FC 1');
+
+-- Match 4
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (4, 2, 3, TO_DATE('2023-11-16', 'YYYY-MM-DD'), 'Camp Nou', 'FC Barcelona 3 - Real Madrid 1');
+
+-- Match 5
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (5, 2, 4, TO_DATE('2023-11-19', 'YYYY-MM-DD'), 'Allianz Arena', 'FC Barcelona 2 - Liverpool FC 4');
+
+-- Match 6
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (6, 2, 5, TO_DATE('2023-11-22', 'YYYY-MM-DD'), 'Parc des Princes', 'FC Barcelona 0 - Bayern Munich 0');
+
+-- Match 7
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (7, 3, 4, TO_DATE('2023-11-17', 'YYYY-MM-DD'), 'Santiago Bernabéu', 'Real Madrid 2 - Liverpool FC 2');
+
+-- Match 8
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (8, 3, 5, TO_DATE('2023-11-20', 'YYYY-MM-DD'), 'Anfield', 'Real Madrid 1 - Bayern Munich 3');
+
+-- Match 9
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (9, 3, 1, TO_DATE('2023-11-23', 'YYYY-MM-DD'), 'Camp Nou', 'Real Madrid 2 - Manchester United 2');
+
+-- Match 10
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (10, 4, 5, TO_DATE('2023-11-24', 'YYYY-MM-DD'), 'Allianz Arena', 'Liverpool FC 3 - Bayern Munich 2');
+
+-- Match 11
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (11, 4, 1, TO_DATE('2023-11-27', 'YYYY-MM-DD'), 'Parc des Princes', 'Liverpool FC 1 - Manchester United 1');
+
+-- Match 12
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (12, 4, 2, TO_DATE('2023-11-30', 'YYYY-MM-DD'), 'Camp Nou', 'Liverpool FC 4 - FC Barcelona 3');
+-- Match 13
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (13, 5, 6, TO_DATE('2023-12-01', 'YYYY-MM-DD'), 'Allianz Arena', 'Bayern Munich 2 - Paris Saint-Germain 1');
+
+-- Match 14
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (14, 5, 7, TO_DATE('2023-12-04', 'YYYY-MM-DD'), 'Parc des Princes', 'Bayern Munich 3 - Juventus 2');
+
+-- Match 15
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (15, 5, 8, TO_DATE('2023-12-07', 'YYYY-MM-DD'), 'Old Trafford', 'Bayern Munich 1 - Chelsea FC 1');
+
+-- Match 16
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (16, 6, 7, TO_DATE('2023-12-02', 'YYYY-MM-DD'), 'Allianz Arena', 'Paris Saint-Germain 2 - Juventus 2');
+
+-- Match 17
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (17, 6, 8, TO_DATE('2023-12-05', 'YYYY-MM-DD'), 'Parc des Princes', 'Paris Saint-Germain 3 - Chelsea FC 1');
+
+-- Match 18
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (18, 6, 9, TO_DATE('2023-12-08', 'YYYY-MM-DD'), 'Allianz Arena', 'Paris Saint-Germain 0 - AC Milan 1');
+
+-- Match 19
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (19, 7, 8, TO_DATE('2023-12-03', 'YYYY-MM-DD'), 'Old Trafford', 'Juventus 2 - Chelsea FC 2');
+
+-- Match 20
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (20, 7, 9, TO_DATE('2023-12-06', 'YYYY-MM-DD'), 'Santiago Bernabéu', 'Juventus 3 - AC Milan 1');
+
+-- Match 21
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (21, 7, 10, TO_DATE('2023-12-09', 'YYYY-MM-DD'), 'Allianz Arena', 'Juventus 1 - Borussia Dortmund 0');
+
+-- Match 22
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (22, 8, 9, TO_DATE('2023-12-10', 'YYYY-MM-DD'), 'Old Trafford', 'Chelsea FC 2 - AC Milan 2');
+
+-- Match 23
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (23, 8, 10, TO_DATE('2023-12-11', 'YYYY-MM-DD'), 'Santiago Bernabéu', 'Chelsea FC 1 - Borussia Dortmund 3');
+
+-- Match 24
+INSERT INTO Matches (MatchID, FirstTeamID, SecondTeamID, MatchDate, Stadium, Result) 
+VALUES (24, 9, 10, TO_DATE('2023-12-12', 'YYYY-MM-DD'), 'Allianz Arena', 'AC Milan 2 - Borussia Dortmund 1');
+SET LINESIZE 200
+SET PAGESIZE 200
+COLUMN MatchId FORMAT 999
+COLUMN firstTeamId FORMAT 999
+COLUMN secondTeamId FORMAT 999
+COLUMN MatchDate FORMAT 999
+COLUMN stadium FORMAT A20
+COLUMN result FORMAT A40
+SELECT * FROM Matches;
+
+
+
+
+
+
+
+
+CREATE TABLE Goals (
+    GoalID INT PRIMARY KEY,
+    MatchID INT,
+    PlayerID INT,
+    PlayerName VARCHAR(255),
+    GoalTime INT,
+    FOREIGN KEY (MatchID) REFERENCES Matches(MatchID),
+    FOREIGN KEY (PlayerID) REFERENCES Players(PlayerID)
+);
+-- Insert data for goals
+-- Insert data into the Goals table with PlayerName
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (1, 1, 6, 'Mason Greenwood', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (2, 1, 20, 'Jadon Sancho', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (3, 1, 5, 'Paul Pogba', 55);
+
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (4, 2, 8, 'Jadon Sancho', 10);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (5, 2, 23, 'Christian Pulisic', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (6, 2, 10, 'Raphael Varane', 70);
+
+-- Goals in Match 3 (Real Madrid vs Paris Saint-Germain)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (7, 3, 11, 'Aaron Wan-Bissaka', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (8, 3, 42, 'Diogo Jota', 75);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (9, 3, 43, 'Thiago Alcântara', 80);
+
+-- Goals in Match 4 (Liverpool FC vs Juventus)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (10, 4, 54, 'Niklas Süle', 10);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (11, 4, 35, 'Sadio Mané', 25);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (12, 4, 34, 'Mohamed Salah', 70);
+
+-- Goals in Match 5 (Bayern Munich vs Paris Saint-Germain)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (13, 5, 56, 'Neymar Jr.', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (14, 5, 63, 'Angel Di Maria', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (15, 5, 57, 'Kylian Mbappé', 80);
+
+-- Goals in Match 6 (Paris Saint-Germain vs Juventus)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (16, 6, 67, 'Cristiano Ronaldo', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (17, 6, 69, 'Giorgio Chiellini', 50);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (18, 6, 74, 'Adrien Rabiot', 75);
+
+-- Goals in Match 7 (Juventus vs Chelsea FC)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (19, 7, 46, 'Thomas Müller', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (20, 7, 57, 'Kylian Mbappé', 60);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (21, 7, 69, 'Giorgio Chiellini', 85);
+
+-- Goals in Match 8 (Chelsea FC vs Manchester United)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (22, 8, 46, 'Thomas Müller', 25);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (23, 8, 77, 'Weston McKennie', 45);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (24, 8, 69, 'Giorgio Chiellini', 70);
+
+-- Goals in Match 9 (Manchester United vs AC Milan)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (25, 9, 46, 'Thomas Müller', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (26, 9, 82, 'Edouard Mendy', 35);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (27, 9, 84, 'Thiago Silva', 80);
+
+-- Goals in Match 10 (AC Milan vs Borussia Dortmund)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (28, 10, 72, 'Juan Cuadrado', 10);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (29, 10, 73, 'Aaron Ramsey', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (30, 10, 77, 'Weston McKennie', 65);
+
+-- Goals in Match 11 (Borussia Dortmund vs FC Barcelona)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (31, 11, 58, 'Keylor Navas (own goal)', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (32, 11, 57, 'Kylian Mbappé', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (33, 11, 61, 'Achraf Hakimi', 75);
+
+-- Goals in Match 12 (FC Barcelona vs AC Milan)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (34, 12, 99, 'Brahim Díaz', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (35, 12, 95, 'Alessio Romagnoli', 50);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (36, 12, 69, 'Giorgio Chiellini', 85);
+
+-- Goals in Match 13 (FC Barcelona vs Juventus)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (37, 13, 46, 'Thomas Müller', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (38, 13, 57, 'Kylian Mbappé', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (39, 13, 69, 'Giorgio Chiellini', 80);
+
+-- Goals in Match 14 (FC Barcelona vs Chelsea FC)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (40, 14, 72, 'Juan Cuadrado', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (41, 14, 73, 'Aaron Ramsey', 50);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (42, 14, 77, 'Weston McKennie', 75);
+
+
+-- Repeat the pattern for the remaining goals
+-- ...
+
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (43, 15, 58, 'Keylor Navas (own goal)', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (44, 15, 57, 'Kylian Mbappé', 60);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (45, 15, 61, 'Achraf Hakimi', 85);
+-- Goals in Match 16 (Juventus vs AC Milan)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (46, 16, 34, 'Mohamed Salah', 25);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (47, 16, 37, 'Fabinho', 50);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (48, 16, 44, 'Joel Matip', 75);
+
+-- Goals in Match 17 (AC Milan vs Chelsea FC)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (49, 17, 89, 'Zlatan Ibrahimović', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (50, 17, 92, 'Gianluigi Donnarumma', 35);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (51, 17, 96, 'Rafael Leão', 80);
+
+-- Goals in Match 18 (AC Milan vs Borussia Dortmund)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (52, 18, 100, 'Erling Haaland', 10);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (53, 18, 101, 'Jadon Sancho', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (54, 18, 102, 'Marco Reus', 65);
+
+-- Goals in Match 19 (AC Milan vs Manchester United)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (55, 19, 1, 'Bruno Fernandes', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (56, 19, 3, 'Harry Maguire', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (57, 19, 5, 'Paul Pogba', 75);
+
+-- Goals in Match 20 (Borussia Dortmund vs Chelsea FC)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (58, 20, 80, 'Mason Mount', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (59, 20, 83, 'Reece James', 45);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (60, 20, 88, 'Christian Pulisic', 70);
+
+-- Goals in Match 21 (Borussia Dortmund vs Manchester United)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (61, 21, 1, 'Bruno Fernandes', 10);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (62, 21, 3, 'Harry Maguire', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (63, 21, 5, 'Paul Pogba', 65);
+
+-- Goals in Match 22 (Borussia Dortmund vs AC Milan)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (64, 22, 99, 'Brahim Díaz', 15);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (65, 22, 95, 'Alessio Romagnoli', 40);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (66, 22, 69, 'Giorgio Chiellini', 80);
+
+-- Goals in Match 23 (Borussia Dortmund vs Juventus)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (67, 23, 72, 'Juan Cuadrado', 20);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (68, 23, 73, 'Aaron Ramsey', 50);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (69, 23, 77, 'Weston McKennie', 75);
+
+-- Goals in Match 24 (Chelsea FC vs Manchester United)
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (70, 24, 1, 'Bruno Fernandes', 30);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (71, 24, 3, 'Harry Maguire', 60);
+INSERT INTO Goals (GoalID, MatchID, PlayerID, PlayerName, GoalTime) VALUES (72, 24, 5, 'Paul Pogba', 85);
+
+
+SET LINESIZE 200
+SET PAGESIZE 200
+COLUMN MatchId FORMAT 999
+COLUMN GoalId FORMAT 999
+COLUMN PlayerId FORMAT 999
+COLUMN PlayerName FORMAT A30
+SELECT * FROM Goals;
+
+
+
+
+
+
+
+CREATE TABLE Cards (
+    CardID INT PRIMARY KEY,
+    MatchID INT,
+    PlayerID INT,
+    CardType VARCHAR(50),
+    FOREIGN KEY (MatchID) REFERENCES Matches(MatchID),
+    FOREIGN KEY (PlayerID) REFERENCES Players(PlayerID)
+);
+-- Cards for Match 1 (Manchester United vs FC Barcelona)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (1, 1, 6, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (2, 1, 20, 'Red');
+
+-- Cards for Match 2 (Manchester United vs Real Madrid)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (3, 2, 8, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (4, 2, 23, 'Red');
+
+-- Cards for Match 3 (Manchester United vs Liverpool FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (5, 3, 10, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (6, 3, 11, 'Red');
+
+-- Repeat this pattern for the remaining matches and players
+
+-- For example, for Match 4 (FC Barcelona vs Real Madrid)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (7, 4, 15, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (8, 4, 16, 'Red');
+
+-- Continue this pattern for all matches
+-- Cards for Match 5 (FC Barcelona vs Liverpool FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (9, 5, 35, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (10, 5, 40, 'Red');
+
+-- Cards for Match 6 (FC Barcelona vs Bayern Munich)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (11, 6, 5, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (12, 6, 50, 'Red');
+
+-- Cards for Match 7 (Real Madrid vs Liverpool FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (13, 7, 36, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (14, 7, 39, 'Red');
+
+-- Continue this pattern for the remaining matches and players
+
+-- For example, for Match 8 (Real Madrid vs Bayern Munich)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (15, 8, 28, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (16, 8, 33, 'Red');
+
+-- Continue this pattern for all matches and players
+-- Cards for Match 9 (Real Madrid vs Manchester United)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (17, 9, 31, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (18, 9, 32, 'Red');
+
+-- Cards for Match 10 (Liverpool FC vs Bayern Munich)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (19, 10, 41, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (20, 10, 44, 'Red');
+
+-- Cards for Match 11 (Liverpool FC vs Manchester United)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (21, 11, 61, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (22, 11, 57, 'Red');
+
+-- Cards for Match 12 (Liverpool FC vs FC Barcelona)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (23, 12, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (24, 12, 74, 'Red');
+
+-- Cards for Match 13 (Bayern Munich vs Paris Saint-Germain)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (25, 13, 63, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (26, 13, 58, 'Red');
+
+-- Cards for Match 14 (Bayern Munich vs Juventus)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (27, 14, 57, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (28, 14, 69, 'Red');
+
+-- Cards for Match 15 (Bayern Munich vs Chelsea FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (29, 15, 77, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (30, 15, 69, 'Red');
+
+-- Continue this pattern for the remaining matches and players
+-- Cards for Match 16 (Paris Saint-Germain vs Juventus)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (31, 16, 57, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (32, 16, 69, 'Red');
+
+-- Cards for Match 17 (Paris Saint-Germain vs Chelsea FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (33, 17, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (34, 17, 74, 'Red');
+
+-- Cards for Match 18 (Paris Saint-Germain vs AC Milan)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (35, 18, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (36, 18, 58, 'Red');
+
+-- Cards for Match 19 (Juventus vs Chelsea FC)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (37, 19, 77, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (38, 19, 69, 'Red');
+
+-- Cards for Match 20 (Juventus vs AC Milan)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (39, 20, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (40, 20, 74, 'Red');
+
+-- Cards for Match 21 (Juventus vs Borussia Dortmund)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (41, 21, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (42, 21, 58, 'Red');
+
+-- Cards for Match 22 (Chelsea FC vs AC Milan)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (43, 22, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (44, 22, 77, 'Red');
+
+-- Cards for Match 23 (Chelsea FC vs Borussia Dortmund)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (45, 23, 69, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (46, 23, 58, 'Red');
+
+-- Cards for Match 24 (AC Milan vs Borussia Dortmund)
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (47, 24, 58, 'Yellow');
+INSERT INTO Cards (CardID, MatchID, PlayerID, CardType) VALUES (48, 24, 69, 'Red');
+
+-- Continue this pattern for the remaining matches and players
+SELECT * FROM CARDS;
+
+
+
+
+
+
+
+CREATE TABLE Coaches (
+    CoachID INT PRIMARY KEY,
+    CoachName VARCHAR(255) NOT NULL,
+    TeamID INT,
+    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
+);
+-- Insert data for Coaches
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (1, 'Ole Gunnar Solskjær', 1);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (2, 'Ronald Koeman', 2);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (3, 'Carlo Ancelotti', 3);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (4, 'Jürgen Klopp', 4);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (5, 'Julian Nagelsmann', 5);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (6, 'Mauricio Pochettino', 6);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (7, 'Massimiliano Allegri', 7);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (8, 'Thomas Tuchel', 8);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (9, 'Stefano Pioli', 9);
+INSERT INTO Coaches (CoachID, CoachName, TeamID) VALUES (10, 'Marco Rose', 10);
+
+
+COLUMN CoachId FORMAT 999
+COLUMN TeamId FORMAT 999
+COLUMN CoachName FORMAT A30
+select * from coaches;
+
+
+
+
+
+
+CREATE TABLE Referees (
+    RefereeID INT PRIMARY KEY,
+    RefereeName VARCHAR(255) NOT NULL
+);
+-- Insert data for Referees
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (1, 'John Smith');
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (2, 'Emily Johnson');
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (3, 'Michael Davis');
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (4, 'Sarah Wilson');
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (5, 'Robert Brown');
+INSERT INTO Referees (RefereeID, RefereeName) VALUES (6, 'Jennifer Taylor');
+
+COLUMN RefereeId FORMAT 999
+COLUMN RefereeName FORMAT A20
+select * from referees;
+
+
+
+
+
+
+CREATE TABLE Stadiums (
+    StadiumID INT PRIMARY KEY,
+    StadiumName VARCHAR(255) NOT NULL,
+    Capacity INT
+);
+-- Insert data for Stadiums (Remove duplicate entries)
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (1, 'Old Trafford', 74011);
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (2, 'Santiago Bernabéu', 81044);
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (3, 'Anfield', 53394);
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (4, 'Camp Nou', 99354);
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (5, 'Allianz Arena', 75000);
+INSERT INTO Stadiums (StadiumID, StadiumName, Capacity) VALUES (6, 'Parc des Princes', 48712);
+
+-- Note: You should adjust the StadiumID, Capacity, and other columns based on your actual table structure.
+
+-- Repeat the above insert statements as needed for each unique stadium name.
+
+COLUMN StadiumId FORMAT 999
+COLUMN StadiumName FORMAT A20
+COLUMN Capacity FORMAT 9999999
+SELECT * FROM STADIUMS;
+
+
+
+
+
+
+
+USING PL/SQL:
+------------------------------------------------------------
+
+printing the team with maximum goals.....:
+
+
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE find_most_scoring_team1 AS
+    v_teamid NUMBER;
+    v_teamname teams.teamname%TYPE;
+    v_max_goals NUMBER := 0;
+BEGIN
+    FOR team_rec IN (SELECT t.teamid, t.teamname
+                     FROM teams t
+                          JOIN players p ON t.teamid = p.teamid
+                          JOIN goals g ON p.playerid = g.playerid) LOOP
+        -- Calculate total goals for each team
+        DECLARE
+            v_total_goals NUMBER;
+        BEGIN
+            SELECT COUNT(*)
+            INTO v_total_goals
+            FROM goals g
+            JOIN players p ON g.playerid = p.playerid
+            WHERE p.teamid = team_rec.teamid;
+
+            -- Check if the total goals are greater than the current maximum
+            IF v_total_goals > v_max_goals THEN
+                v_max_goals := v_total_goals;
+                v_teamid := team_rec.teamid;
+                v_teamname := team_rec.teamname;
+            END IF;
+        END;
+
+    END LOOP;
+
+    -- Print the result
+    DBMS_OUTPUT.PUT_LINE('Most Scoring Team: ' || v_teamname || ', Total Goals: ' || v_max_goals);
+END;
+/
+
+-- Example usage
+BEGIN
+    find_most_scoring_team1;
+END;
+/
+
+
+
+
+
+
+changing a random match date using PL/SQL.........:
+
+
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE PROCEDURE update_match_date(
+    p_match_id IN NUMBER,
+    p_new_match_date IN DATE
+) AS
+BEGIN
+    -- Update the match date
+    UPDATE matches
+    SET matchdate = p_new_match_date
+    WHERE matchid = p_match_id;
+
+    -- Commit the changes
+    COMMIT;
+
+    -- Display success message
+    DBMS_OUTPUT.PUT_LINE('Match date updated successfully for Match ID ' || p_match_id);
+EXCEPTION
+    WHEN OTHERS THEN
+        -- Display error message
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+
+-- Example usage
+BEGIN
+    update_match_date(1, TO_DATE('25-NOV-23', 'DD-MON-YY'));
+END;
+/
+
+
